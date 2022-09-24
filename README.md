@@ -2,6 +2,7 @@
 
 # Bookstore With React
 
+The Bookstore is a Website similar to the "Awesome Books "website . this version is created using React ,it allows the user to: Add and remove the Books from the list 
 
 # Getting Started with Create React App
 
