@@ -1,26 +1,27 @@
-import PropTypes from 'prop-types';
+import Book from './Book';
 
-const Bookslist = ({ books, handleDelete }) => (
-  <div className="booksList">
-    {books.map((book) => (
-      <div className="prevBooks" key={book.id}>
-        {book.title}
-        {book.author}
-        {book.category}
-        <button type="button" onClick={() => handleDelete(book.id)}>
-          Remove button
-        </button>
-      </div>
-    ))}
-  </div>
-);
-
-Bookslist.defaultProps = {
-  books: '',
+const Bookslist = () => {
+  const books = [
+    {
+      id: 1,
+      title: 'books',
+      author: 'books1',
+      category: 'action',
+    },
+    {
+      id: 2,
+      title: 'books2',
+      author: 'books2',
+      category: 'action1',
+    },
+    {
+      id: 3,
+      title: 'books3',
+      author: 'books3',
+      category: 'action2',
+    },
+  ];
+  return <Book books={books} />;
 };
 
-Bookslist.propTypes = {
-  books: PropTypes.string,
-  handleDelete: PropTypes.func.isRequired,
-};
 export default Bookslist;
