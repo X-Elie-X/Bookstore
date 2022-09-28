@@ -1,10 +1,12 @@
-import { ConditionFunction } from '@reduxjs/toolkit';
-import Reducer from './Books/books';
+import { configureStore } from '@reduxjs/toolkit';
+import bookReducer from './Books/books';
 import catReducer from './categories/categories';
 
-const combineReducers = ConditionFunction({
-  books: Reducer,
-  categories: catReducer,
+const store = configureStore({
+  reducer: {
+    books: bookReducer,
+    categories: catReducer,
+  },
 });
 
-export default combineReducers;
+export default store;
