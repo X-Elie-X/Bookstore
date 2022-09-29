@@ -10,7 +10,8 @@ const catReducer = (state = initialState, action) => {
     case DISPLAY_STATUS:
       return {
         ...state,
-        categories: action.type,
+
+        categories: [...state.categories, action.payload],
         loading: false,
       };
     default:
