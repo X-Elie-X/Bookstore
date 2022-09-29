@@ -1,7 +1,14 @@
-import PropTypes from 'prop-types';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RemoveBook } from '../Redux/Books/books';
 
-function Book(props) {
-  const { books } = props;
+function Book() {
+  const books = useSelector((state) => state.books.books);
+  useEffect(() => {}, [books]);
+  const dispatch = useDispatch();
+  const handleDelete = (id) => {
+    dispatch(RemoveBook(id));
+  };
   return (
     <div className="booksList">
       {books.map((Book) => (
@@ -9,18 +16,13 @@ function Book(props) {
           {Book.title}
           {Book.author}
           {Book.category}
-          <button type="button">Remove button</button>
+          <button type="button" onClick={() => handleDelete(Book.id)}>
+            Remove button
+          </button>
         </div>
       ))}
     </div>
   );
 }
 
-Book.defaultProps = {
-  books: [],
-};
-
-Book.propTypes = {
-  books: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.object])),
-};
 export default Book;
